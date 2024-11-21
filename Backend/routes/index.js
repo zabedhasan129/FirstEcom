@@ -7,7 +7,10 @@ let apiBaseUrl = process.env.BASEURL
 _.use(apiBaseUrl,apiRoutes)
 
 
-_.use(apiBaseUrl, (req,res)=> res.send("Sawon sir vala na,heti aree khali pochay"))
+_.use((req,res)=>{
+    res.send("sawaon sir vala na heti khali areee pochay")
+    
+})
 
 
 
