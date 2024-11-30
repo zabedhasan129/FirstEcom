@@ -4,8 +4,10 @@ var cors = require('cors')
 const app = express();
 const secureApi = require("./middleware/secureApi")
 const routes = require("./routes")
+const mongodbconfig = require("./config/mongodbconfig")
 
-app.use(cors())
+mongodbconfig();
+app.use(cors());
 app.use(express.json());
 app.use(routes)
 // app.post("/api/auth/registration",secureApi,(req,res)=>{
