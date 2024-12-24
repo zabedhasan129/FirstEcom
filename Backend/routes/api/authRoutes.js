@@ -1,14 +1,15 @@
 const express = require("express");
 const secureApi = require("../../middleware/secureApi");
 const registrationController = require("../../controler/registrationController");
-const _ = express.Router();
+const otpController = require("../../controler/otpcontroller");
+const routes = express.Router();
 
 
 
 
-_.post("/registration",secureApi,registrationController)
+routes.post("/registration",registrationController)
+routes.post("/otp",otpController)
 
 
 
-
-module.exports = _;
+module.exports = routes;
