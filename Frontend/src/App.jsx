@@ -1,17 +1,18 @@
 import React from 'react';
 import { createRoutesFromElements, createBrowserRouter, Route, RouterProvider, } from "react-router-dom";
 import Registration from './pages/Registration';
+import OtpVarification from './pages/OtpVarification';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route
         path="/"
-        element={<Registration />}
+        element={<Registration/>}
       />
       <Route
-        path="/otpvarification"
-        element={<OtpVarifiacation/>}
+        path="/otpvarification/:email"
+        element={<OtpVarification/>}
       />
     </Route>
   )

@@ -55,6 +55,7 @@ let registrationController = async (req, res) => {
                     otp: otp,
                 });
                 user.save();
+                
 
 
                 //nodeMailer for Email

@@ -1,22 +1,23 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import axios from "axios"
+import { useParams } from 'react-router';
 
 const OtpVarification = () => {
-    const onFinish = (values) => {
-        console.log('Success:', values);
 
-        axios.post("http://localhost:8000/api/v1/auth/registration", {
-            username: values.username,
-            Email: values.Email,
-            password: values.password,
+    let param = useParams()
+    console.log("redirect mail",param.email)
 
-        }, {
-            headers: {
-                Authorization: "kdslfhlkfghfh",
-            },
-        });
 
+    const onFinish = async (values) => {
+        console.log('Email otp:', values);
+        let data = await axios.post("http://localhost:8000/api/v1/auth/otp", {
+            
+            email : param.email,
+            otp: values.otp,
+
+        })
+        console.log("otp data",data)
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -42,16 +43,27 @@ const OtpVarification = () => {
             autoComplete="off"
         >
             <Form.Item
-                label="Username"
-                name="username"
+                label="otp"
+                name="otp"
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your username!',
+                        message: 'Please input your otp!',
                     },
                 ]}
             >
                 <Input />
+            </Form.Item>
+
+            <Form.Item
+                wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                }}
+            >
+                <Button type="primary" htmlType="submit">
+                    Submit
+                </Button>
             </Form.Item>
         </Form>
     )

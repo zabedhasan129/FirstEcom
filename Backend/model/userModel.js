@@ -19,12 +19,12 @@ const userSchema = new Schema({
     },
     isEmailvarified:{
         type: Boolean,
-        default: true
+        default: false
     },
     role:{
         type:String,
         role:["user","marchant","admin"],
-        default: "false"
+        default: "user"
     }
     
 })
