@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Form, Input } from 'antd';
 import axios from "axios"
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 
 const Registration = () => {
@@ -20,10 +20,12 @@ const Registration = () => {
         Authorization: "kdslfhlkfghfh",
       },
     });
-    navigate(`/otpvarification/${values.email}`)
+    // navigate(`/otpvarification/${values.email}`)
+    navigate("/gotogmail")
+
     console.log(data)
   };
-  
+
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
@@ -97,6 +99,8 @@ const Registration = () => {
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
+        <br />
+        <Link to="/forgetpassword">Forgetpassword</Link>
       </Form.Item>
     </Form>
   )
