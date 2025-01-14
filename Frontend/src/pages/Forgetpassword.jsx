@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import axios from "axios"
+import { useNavigate } from 'react-router';
 
 const Forgetpassword = () => {
 
+   let navigate = useNavigate()
     const onFinish = async (values) => {
         console.log('Success:', values);
         let data = await axios.post("http://localhost:8000/api/v1/auth/forgetpassword", {
@@ -14,7 +16,7 @@ const Forgetpassword = () => {
         });
 
 
-
+        navigate("/gotogmail"),
         console.log(data)
     };
     const onFinishFailed = (errorInfo) => {

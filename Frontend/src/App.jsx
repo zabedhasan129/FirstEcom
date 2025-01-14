@@ -5,29 +5,34 @@ import OtpVarification from './pages/OtpVarification';
 import Login from './pages/Login';
 import GotoGmail from './pages/GotoGmail';
 import Forgetpassword from './pages/Forgetpassword';
+import Changepass from './pages/Changepass';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route
         path="/"
-        element={<Registration/>}
+        element={<Registration />}
       />
       <Route
-        path="/forgetpassword/:token"
-        element={<Forgetpassword/>}
+        path="/forgetpassword"
+        element={<Forgetpassword />}
+      />
+      <Route
+        path="/changepass/:token"
+        element={<Changepass />}
       />
       <Route
         path="/gotogmail"
-        element={<GotoGmail/>}
+        element={<GotoGmail />}
       />
       <Route
         path="/otpvarification/:email/:otp"
-        element={<OtpVarification/>}
+        element={<OtpVarification />}
       />
       <Route
         path="/login"
-        element={<Login/>}
+        element={<Login />}
       />
     </Route>
   )

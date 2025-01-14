@@ -21,7 +21,7 @@ const Registration = () => {
       },
     });
     // navigate(`/otpvarification/${values.email}`)
-    navigate("/gotogmail")
+    navigate("/gotogmail"),
 
     console.log(data)
   };
