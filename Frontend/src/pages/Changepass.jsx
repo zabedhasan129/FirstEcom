@@ -5,25 +5,26 @@ import { useParams } from 'react-router';
 
 
 
-    let param= useParams()
+
 
 const Changepass = () => {
 
-  
+  let param = useParams()
+
   const onFinish = async (values) => {
-    console.log('Success:', values);
-    console.log(param)
+    console.log('New Password:', values);
+    console.log(param.token)
     let data = await axios.post("http://localhost:8000/api/v1/auth/changepass", {
 
-      token: param.email,
+      token: param.token,
       password: values.password
 
 
     });
 
 
-    
-      console.log(data)
+
+    console.log(data)
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
